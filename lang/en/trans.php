@@ -3,6 +3,7 @@
 $array = [
     'data_invalid' => 'Invalid data, please review the information.',
     "welcome" => "Welcome",
+    "welcome back!" => "Welcome back !",
     "logout" => "Logout",
     "create" => "Create",
     "edit" => "Edit",

@@ -58,36 +58,6 @@
       <!-- End::header-element -->
 
       <!-- Start::header-element -->
-      <div class="header-element header-theme-mode">
-        <!-- Start::header-link|layout-setting -->
-        <a href="javascript:void(0);" class="header-link layout-setting">
-          <span class="light-layout">
-            <!-- Start::header-link-icon -->
-            <i class="bx bx-moon header-link-icon"></i>
-            <!-- End::header-link-icon -->
-          </span>
-          <span class="dark-layout">
-            <!-- Start::header-link-icon -->
-            <i class="bx bx-sun header-link-icon"></i>
-            <!-- End::header-link-icon -->
-          </span>
-        </a>
-        <!-- End::header-link|layout-setting -->
-      </div>
-      <!-- End::header-element -->
-
-      <!-- Start::header-element -->
-      <div class="header-element header-fullscreen">
-        <!-- Start::header-link -->
-        <a onclick="openFullscreen();" href="#" class="header-link">
-          <i class="bx bx-fullscreen full-screen-open header-link-icon"></i>
-          <i class="bx bx-exit-fullscreen full-screen-close header-link-icon d-none"></i>
-        </a>
-        <!-- End::header-link -->
-      </div>
-      <!-- End::header-element -->
-
-      <!-- Start::header-element -->
       <div class="header-element">
         <!-- Start::header-link|dropdown-toggle -->
         <a href="#" class="header-link dropdown-toggle" id="mainHeaderProfile" data-bs-toggle="dropdown"
@@ -105,7 +75,7 @@
           aria-labelledby="mainHeaderProfile">
           <li>
             <a class="dropdown-item d-flex" href="{{ route('profile.index') }}"><i
-                class="ti ti-user-circle fs-18 me-2 op-7"></i>Profile</a>
+                class="ti ti-user-circle fs-18 me-2 op-7"></i>@lang('trans.profile')</a>
           </li>
 
           <li>
@@ -113,7 +83,7 @@
               @csrf
               <button type="submit" class="dropdown-item d-flex w-100"
                 style="border: none; background: none; text-align: left;">
-                <i class="ti ti-logout fs-18 me-2 op-7"></i>Log Out
+                <i class="ti ti-logout fs-18 me-2 op-7"></i>@lang('trans.logout')
               </button>
             </form>
           </li>
@@ -122,15 +92,6 @@
       </div>
       <!-- End::header-element -->
 
-      <!-- Start::header-element -->
-      <div class="header-element">
-        <!-- Start::header-link|switcher-icon -->
-        <a href="#" class="header-link switcher-icon" data-bs-toggle="offcanvas" data-bs-target="#switcher-canvas">
-          <i class="bx bx-cog header-link-icon"></i>
-        </a>
-        <!-- End::header-link|switcher-icon -->
-      </div>
-      <!-- End::header-element -->
     </div>
     <!-- End::header-content-right -->
   </div>

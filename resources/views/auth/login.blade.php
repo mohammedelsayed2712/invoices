@@ -15,24 +15,22 @@
             </div>
             <div class=" card custom-card">
                 <div class="card-body p-5">
-                    {{-- <p class="h5 fw-semibold mb-2 text-center">Sign In</p> --}}
-                    <p class="mb-4 text-muted op-7 fw-normal text-center">Welcome back !</p>
+                    <p class="mb-4 text-muted op-7 fw-normal text-center">@lang('trans.welcome back!')</p>
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
                         <div class="row gy-3">
                             <div class="col-xl-12">
-                                <label for="email" class="form-label text-default">Email</label>
-                                <input type="text" class="form-control form-control-lg" id="email" name="email"
-                                    placeholder="email">
+                                <label for="email" class="form-label text-default">@lang('trans.email')</label>
+                                <input type="text" class="form-control form-control-lg" id="email" name="email">
                                 @error("email")
                                 <span class="text-danger d-block mt-2">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="col-xl-12 mb-2">
-                                <label for="password" class="form-label text-default d-block">Password
+                                <label for="password" class="form-label text-default d-block">@lang('trans.password')
                                     <div class="input-group">
                                         <input type="password" class="form-control form-control-lg" id="password"
-                                            name="password" placeholder="password">
+                                            name="password">
                                         <button class="btn btn-light" type="button"
                                             onclick="togglePassword('password', this)" id="button-addon2">
                                             <i class="ri-eye-off-line align-middle"></i>
@@ -45,13 +43,13 @@
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
                                             <label class="form-check-label text-muted fw-normal" for="defaultCheck1">
-                                                Remember password ?
+                                                @lang('trans.remember_me')
                                             </label>
                                         </div>
                                     </div>
                             </div>
                             <div class="col-xl-12 d-grid mt-2">
-                                <button type="submit" class="btn btn-lg btn-primary">Sign In</button>
+                                <button type="submit" class="btn btn-lg btn-primary">@lang('trans.login')</button>
                             </div>
                         </div>
                     </form>

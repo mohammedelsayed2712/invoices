@@ -30,7 +30,7 @@
 
 </head>
 
-<body>
+<body @if(app()->getLocale() == 'ar') dir="rtl" @endif>
     <div id="app">
         {{-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">

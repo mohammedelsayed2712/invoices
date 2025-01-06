@@ -46,6 +46,8 @@
   <link rel="stylesheet" href="{{ asset('vendor/sweetalert/sweetalert.css') }}" /> --}}
   <link rel="stylesheet" href="{{ asset('assets/libs/sweetalert2/sweetalert2.min.css') }}" />
 
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+
   <!-- Choices JS -->
   <script src="{{ asset('assets/libs/choices.js/public/assets/scripts/choices.min.js') }}"></script>
 
