@@ -15,11 +15,6 @@
   <!-- Bootstrap CSS -->
 
   <link id="style" href="{{ asset('assets/libs/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
-  {{-- @if (LaravelLocalization::getCurrentLocale() == 'en')
-  <link id="style" href="{{ asset('assets/libs/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-  @elseif(LaravelLocalization::getCurrentLocale() == 'ar')
-  <link id="style" href="{{ asset('assets/libs/bootstrap/css/bootstrap.rtl.min.css') }}" rel="stylesheet">
-  @endif --}}
 
   <!-- Style CSS -->
   <link href="{{ asset('assets/css/styles.min.css') }}" rel="stylesheet" />

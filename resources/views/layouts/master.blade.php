@@ -13,7 +13,6 @@
 @include('partials.head')
 
 <body>
-  {{-- @include('partials.switcher') --}}
 
   <div class="page">
     <!-- app-header -->

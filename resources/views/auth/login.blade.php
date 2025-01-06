@@ -10,8 +10,8 @@
         @endif --}}
         <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-6 col-sm-8 col-12">
             <div class="my-4 d-flex justify-content-center">
-                <img src="{{ asset('assets/images/brand-logos/pal.jpg') }}" alt="logo" class="desktop-logo"
-                    style="width: 120px; height: 90px;">
+                {{-- <img src="{{ asset('assets/images/brand-logos/pal.jpg') }}" alt="logo" class="desktop-logo"
+                    style="width: 120px; height: 90px;"> --}}
             </div>
             <div class=" card custom-card">
                 <div class="card-body p-5">
