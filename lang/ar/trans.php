@@ -156,11 +156,11 @@ $array = [
     'price' => 'السعر',
     'paid_before' => 'المدفوع مسبقا',
     'title' => 'البند',
-    'settings' => 'الاعدادات',
+    'settings' => 'الإعدادات',
     'users' => "المستخدمين",
     'user' => "مستخدم",
     'role' => "الدور",
-    'roles' => "الادوار",
+    'roles' => "الأدوار",
     'read' => "رؤية",
     'pdf' => "تصدير كملف PDF",
     'permissions' => "الصلاحيات",
@@ -204,7 +204,15 @@ $array = [
     'order_id' => "رقم الطلب",
     "gender" => "النوع",
 
-    "categories" => "الأصناف",
+    "categories" => "الأقسام",
+    "products" => "المنتجات",
+    "Invoices" => "الفواتير",
+    "List of bills" => "قائمة الفواتير",
+    "Partially paid invoices" => "الفواتير المدفوعة جزئيا",
+    "Unpaid Bills" => "الفواتير الغير المدفوعة",
+    "Paid bills" => "الفواتير المدفوعة",
+    "Billing reports" => "تقارير الفواتير",
+    "Customer reports" => "تقارير العملاء",
 
 ];
 return $array;

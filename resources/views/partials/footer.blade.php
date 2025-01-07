@@ -2,8 +2,8 @@
   <div class="container">
     <span class="text-muted">
       Copyright © <span id="year"></span>
-      <a href="https://arnewwaves.net/">
-        <span class="fw-semibold text-primary text-decoration-underline">New Waves</span>
+      <a href="https://github.com/mohammedelsayed2712">
+        <span class="fw-semibold text-primary text-decoration-underline">Mohammed Elsayed</span>
       </a>
       All rights reserved.
     </span>

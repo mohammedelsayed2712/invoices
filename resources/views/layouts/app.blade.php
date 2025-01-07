@@ -89,6 +89,21 @@
         </nav> --}}
 
         <main class="py-4">
+            @if(Session::has('success'))
+            <div class="alert alert-success
+            text-center col-6
+            mx-auto
+            mt-3
+            " role="alert">
+                {{ Session::get('success') }}
+            </div>
+            @php
+            // remove session
+            Session::forget('success');
+
+            @endphp
+            @endif
+
             @yield('content')
         </main>
     </div>

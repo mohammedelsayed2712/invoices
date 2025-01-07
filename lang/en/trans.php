@@ -12,6 +12,8 @@ $array = [
     "show" => "Show",
     "add" => "Add",
     "all" => "All",
+    "remember_me" => "Remember me",
+    "login" => "Login",
     "proficiency_certificates" => "Proficiency Certificates",
     'date' => 'Date',
     "client_name" => "Client Name",
@@ -148,6 +150,14 @@ $array = [
     "reset" => "Reset",
 
     "categories" => "Categories",
+    "products" => "Products",
+    "Invoices" => "Invoices",
+    "List of bills" => "List of bills",
+    "Partially paid invoices" => "Partially paid invoices",
+    "Unpaid Bills" => "Unpaid Bills",
+    "Paid bills" => "Paid bills",
+    "Billing reports" => "Billing reports",
+    "Customer reports" => "Billing reports",
 
 ];
 return $array;

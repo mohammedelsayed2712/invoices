@@ -20,6 +20,14 @@
         </svg>
       </div>
       <ul class="main-menu">
+
+        <li class="slide">
+          <a href="{{ route('home') }}" class="side-menu__item">
+            <i class="bx bx-home side-menu__icon"></i>
+            <span class="side-menu__label">@lang('trans.home')</span>
+          </a>
+        </li>
+
         <!-- Start::slide__category -->
         <li class="slide__category">
           <span class="category-name">Main</span>
@@ -27,26 +35,97 @@
         <!-- End::slide__category -->
 
         <!-- Start::slide -->
+        <li class="slide">
+          <a href="{{ route('home') }}" class="side-menu__item">
+            {{-- <i class="bx bx-home side-menu__icon"></i> --}}
+            {{-- <i class="bx bx-category side-menu__icon"></i> --}}
+            <i class="bx bx-grid side-menu__icon"></i>
+            <span class="side-menu__label">@lang('trans.categories')</span>
+          </a>
+        </li>
+        <!-- End::slide -->
+
+        <!-- Start::slide -->
+        <li class="slide">
+          <a href="{{ route('home') }}" class="side-menu__item">
+            <i class="bx bx-cart-alt side-menu__icon"></i>
+            <span class="side-menu__label">@lang('trans.products')</span>
+          </a>
+        </li>
+        <!-- End::slide -->
+
+        <!-- Start::slide -->
         <li class="slide has-sub">
           <a href="javascript:void(0);" class="side-menu__item">
-            <i class="bx bx-home side-menu__icon"></i>
-            <span class="side-menu__label">Dashboards</span>
+            <i class="bx bx-receipt side-menu__icon"></i>
+            <span class="side-menu__label">@lang('trans.Invoices')</span>
             <i class="fe fe-chevron-right side-menu__angle"></i>
           </a>
           <ul class="slide-menu child1">
             <li class="slide side-menu__label1">
-              <a href="javascript:void(0)">Dashboards</a>
+              <a href="javascript:void(0)">@lang('trans.Invoices')</a>
             </li>
             <li class="slide">
-              <a href="index.html" class="side-menu__item">CRM</a>
+              <a href="index-1.html" class="side-menu__item">@lang('trans.List of bills')</a>
             </li>
             <li class="slide">
-              <a href="index-1.html" class="side-menu__item">Ecommerce</a>
+              <a href="index-1.html" class="side-menu__item">@lang('trans.Partially paid invoices')</a>
+            </li>
+            <li class="slide">
+              <a href="index-1.html" class="side-menu__item">@lang('trans.Unpaid Bills')</a>
+            </li>
+            <li class="slide">
+              <a href="index-1.html" class="side-menu__item">@lang('trans.Paid bills')</a>
             </li>
 
           </ul>
         </li>
         <!-- End::slide -->
+
+        <!-- Start::slide -->
+        <li class="slide has-sub">
+          <a href="javascript:void(0);" class="side-menu__item">
+            <i class="bx bx-file side-menu__icon"></i>
+            <span class="side-menu__label">@lang('trans.reports')</span>
+            <i class="fe fe-chevron-right side-menu__angle"></i>
+          </a>
+          <ul class="slide-menu child1">
+            <li class="slide side-menu__label1">
+              <a href="javascript:void(0)">@lang('trans.reports')</a>
+            </li>
+            <li class="slide">
+              <a href="index-1.html" class="side-menu__item">@lang('trans.Billing reports')</a>
+            </li>
+            <li class="slide">
+              <a href="index-1.html" class="side-menu__item">@lang('trans.Customer reports')</a>
+            </li>
+
+          </ul>
+        </li>
+        <!-- End::slide -->
+
+        <!-- Start::slide -->
+        <li class="slide has-sub">
+          <a href="javascript:void(0);" class="side-menu__item">
+            <i class="bx bx-cog side-menu__icon"></i>
+            <span class="side-menu__label">@lang('trans.settings')</span>
+            <i class="fe fe-chevron-right side-menu__angle"></i>
+          </a>
+          <ul class="slide-menu child1">
+            <li class="slide side-menu__label1">
+              <a href="javascript:void(0)">@lang('trans.settings')</a>
+            </li>
+            <li class="slide">
+              <a href="index-1.html" class="side-menu__item">@lang('trans.users')</a>
+            </li>
+            <li class="slide">
+              <a href="index-1.html" class="side-menu__item">@lang('trans.roles')</a>
+            </li>
+
+          </ul>
+        </li>
+        <!-- End::slide -->
+
       </ul>
       <div class="slide-right" id="slide-right">
         <svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191" width="24" height="24" viewBox="0 0 24 24">
