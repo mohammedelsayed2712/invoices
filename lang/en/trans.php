@@ -148,6 +148,7 @@ $array = [
     'price_to' => 'Price To',
     'search' => 'Search',
     "reset" => "Reset",
+    "AddNew" => "Add New",
 
     "categories" => "Categories",
     "products" => "Products",

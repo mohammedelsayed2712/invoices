@@ -203,6 +203,7 @@ $array = [
     "security" => "الضمان",
     'order_id' => "رقم الطلب",
     "gender" => "النوع",
+    "AddNew" => "إضافة جديد",
 
     "categories" => "الأقسام",
     "products" => "المنتجات",

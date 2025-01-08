@@ -37,8 +37,6 @@
         <!-- Start::slide -->
         <li class="slide">
           <a href="{{ route('home') }}" class="side-menu__item">
-            {{-- <i class="bx bx-home side-menu__icon"></i> --}}
-            {{-- <i class="bx bx-category side-menu__icon"></i> --}}
             <i class="bx bx-grid side-menu__icon"></i>
             <span class="side-menu__label">@lang('trans.categories')</span>
           </a>
@@ -66,7 +64,7 @@
               <a href="javascript:void(0)">@lang('trans.Invoices')</a>
             </li>
             <li class="slide">
-              <a href="index-1.html" class="side-menu__item">@lang('trans.List of bills')</a>
+              <a href="{{ route('invoices.index') }}" class="side-menu__item">@lang('trans.List of bills')</a>
             </li>
             <li class="slide">
               <a href="index-1.html" class="side-menu__item">@lang('trans.Partially paid invoices')</a>
