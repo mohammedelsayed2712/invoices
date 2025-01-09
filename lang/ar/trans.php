@@ -214,6 +214,16 @@ $array = [
     "Paid bills" => "الفواتير المدفوعة",
     "Billing reports" => "تقارير الفواتير",
     "Customer reports" => "تقارير العملاء",
+    "invoice_number" => "رقم الفاتورة",
+    "invoice_date" => "تاريخ الفاتورة",
+    "due_date" => "تاريخ الإستحقاق",
+    "product" => "المنتج",
+    "section" => "القسم",
+    "rate_vat" => "نسبة الضريبة",
+    "value_vat" => "قيمة الضريبة",
+    "total" => "الإجمالي",
+    "value_status" => "حالة القيمة",
+    "note" => "ملاحظات",
 
 ];
 return $array;

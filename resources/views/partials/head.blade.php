@@ -17,7 +17,7 @@
   <link id="style" href="{{ asset('assets/libs/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
 
   <!-- Style CSS -->
-  <link href="{{ asset('assets/css/styles.min.css') }}" rel="stylesheet" />
+  <link href="{{ asset('assets/css/styles.css') }}" rel="stylesheet" />
 
   <!-- Icons CSS -->
   <link href="{{ asset('assets/css/icons.css') }}" rel="stylesheet" />

@@ -7,48 +7,67 @@
 
 <div class="col-12">
   <div class="card custom-card">
-    <div class="card-header">
-      <div class="card-title">Add New Row</div>
+    <div class="card-header justify-content-between">
+      <div class="card-title">{{ __('trans.invoices') }}</div>
       <div class="prism-toggle">
-        <button class="btn btn-primary-light m-1 " data-bs-toggle="modal"
-          data-bs-target="#create">@lang("trans.AddNew")<i class="bi bi-plus-lg ms-2"></i></button>
+        <a href="{{ route('invoices.create') }}" class="btn btn-primary m-1">@lang("trans.AddNew")<i
+            class="bi bi-plus-lg ms-2"></i></a>
       </div>
     </div>
     <div class="card-body">
-      <div class="table-responsive">
-        {{-- <div class="text-center">
-          <button id="addRow" class="btn btn-primary mb-2 data-table-btn">
-            Add new row
-          </button>
-        </div> --}}
-        <table id="add-row" class="table table-bordered text-nowrap" style="width: 100%">
-          <thead>
-            <tr>
-              <th>Column 1</th>
-              <th>Column 2</th>
-              <th>Column 3</th>
-              <th>Column 4</th>
-              <th>Column 5</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Tiger Nixon</td>
-              <td>System Architect</td>
-              <td>Edinburgh</td>
-              <td>61</td>
-              <td>2011-04-25</td>
-            </tr>
-            <tr>
-              <td>Garrett Winters</td>
-              <td>Accountant</td>
-              <td>Tokyo</td>
-              <td>63</td>
-              <td>2011-07-25</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <table id="file-export" class="table table-bordered text-nowrap" style="width: 100%">
+        <thead>
+          <tr>
+            <th>@lang('trans.invoice_number')</th>
+            <th>@lang('trans.invoice_date')</th>
+            <th>@lang('trans.due_date')</th>
+            <th>@lang('trans.product')</th>
+            <th>@lang('trans.section')</th>
+            <th>@lang('trans.discount')</th>
+            <th>@lang('trans.rate_vat')</th>
+            <th>@lang('trans.value_vat')</th>
+            <th>@lang('trans.total')</th>
+            <th>@lang('trans.value_status')</th>
+            <th>@lang('trans.note')</th>
+            <th>@lang('trans.user')</th>
+            <th>@lang('trans.status')</th>
+            <th>@lang('trans.created_at') </th>
+            <th>@lang('trans.actions') </th>
+          </tr>
+        </thead>
+        <tbody>
+          @foreach ($model as $invoice)
+          <tr>
+            <td>{{ $invoice->invoice_number }}</td>
+            <td>{{ $invoice->invoice_date }}</td>
+            <td>{{ $invoice->due_date }}</td>
+            <td>{{ $invoice->product }}</td>
+            <td>{{ $invoice->section }}</td>
+            <td>{{ $invoice->discount }}</td>
+            <td>{{ $invoice->rate_vat }}</td>
+            <td>{{ $invoice->value_vat }}</td>
+            <td>{{ $invoice->total }}</td>
+            <td>{{ $invoice->value_status }}</td>
+            <td>{{ $invoice->note }}</td>
+            <td>{{ $invoice->user }}</td>
+            <td>{{ $invoice->status }}</td>
+            {{-- <td>{{ $invoice->created_at->format('Y-m-d H:i:s') }}</td> --}}
+            <td>{{ $invoice->created_at->diffForHumans() }}</td>
+
+            <td>
+              <a href=" {{ route('countries.edit', $job->id) }}" class="btn btn-info btn-md">@lang('trans.edit')</i></a>
+
+              {!! Form::open(['route' => ['countries.destroy', $job->id], 'method' => 'delete', 'style' =>
+              'display:inline' ,
+              ]) !!}
+              {!! Form::close() !!}
+
+            </td>
+
+          </tr>
+          @endforeach
+        </tbody>
+      </table>
     </div>
   </div>
 </div>

@@ -7,12 +7,16 @@ use Illuminate\Http\Request;
 
 class InvoiceController extends Controller
 {
+    public function __construct(private Invoice $model)
+    {
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('invoices.index');
+        $model = $this->model->all();
+        return view('invoices.index', get_defined_vars());
     }
 
     /**
@@ -20,7 +24,7 @@ class InvoiceController extends Controller
      */
     public function create()
     {
-        //
+        return view('invoices.create');
     }
 
     /**

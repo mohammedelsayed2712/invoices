@@ -64,7 +64,7 @@
               <a href="javascript:void(0)">@lang('trans.Invoices')</a>
             </li>
             <li class="slide">
-              <a href="{{ route('invoices.index') }}" class="side-menu__item">@lang('trans.List of bills')</a>
+              <a href="{{ route('invoices.index') }}" class="side-menu__item">@lang('trans.invoices')</a>
             </li>
             <li class="slide">
               <a href="index-1.html" class="side-menu__item">@lang('trans.Partially paid invoices')</a>

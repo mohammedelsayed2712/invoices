@@ -6,6 +6,7 @@ $array = [
     "welcome back!" => "Welcome back !",
     "logout" => "Logout",
     "create" => "Create",
+    "profile" => "Profile",
     "edit" => "Edit",
     "delete" => "Delete",
     "save" => "Save",
@@ -159,6 +160,15 @@ $array = [
     "Paid bills" => "Paid bills",
     "Billing reports" => "Billing reports",
     "Customer reports" => "Billing reports",
-
+    "invoice_number" => "Invoice number",
+    "invoice_date" => "Invoice date",
+    "due_date" => "Due date",
+    "product" => "Product",
+    "section" => "Section",
+    "rate_vat" => "Rate vat",
+    "value_vat" => "Value vat",
+    "total" => "Total",
+    "value_status" => "Value vat",
+    "note" => "Note",
 ];
 return $array;
