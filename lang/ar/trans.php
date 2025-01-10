@@ -127,8 +127,6 @@ $array = [
     'recruiter_fawary' => "مستقدم فوري",
     'cv' => "السيرة الذاتية",
     'whatsapp' => "واتساب",
-    'active' => "متاحه",
-    'not_active' => "غير متاحه ",
     'country_id' => "اسم الدولة",
     'job_id' => "اسم الوظيفة",
     'have_pervious_experience' => 'امتلاك خبرة سابقه',
@@ -203,6 +201,8 @@ $array = [
     "security" => "الضمان",
     'order_id' => "رقم الطلب",
     "gender" => "النوع",
+    "active" => "مفعل",
+    "inactive" => "غير مفعل",
     "AddNew" => "إضافة جديد",
 
     "categories" => "الأقسام",
@@ -224,6 +224,7 @@ $array = [
     "total" => "الإجمالي",
     "value_status" => "حالة القيمة",
     "note" => "ملاحظات",
-
+    "sections" => "الأقسام",
+    "Add Section" => "إضافة قسم",
 ];
 return $array;

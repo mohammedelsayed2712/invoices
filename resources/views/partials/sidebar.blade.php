@@ -36,7 +36,7 @@
 
         <!-- Start::slide -->
         <li class="slide">
-          <a href="{{ route('home') }}" class="side-menu__item">
+          <a href="{{ route('sections.index') }}" class="side-menu__item">
             <i class="bx bx-grid side-menu__icon"></i>
             <span class="side-menu__label">@lang('trans.categories')</span>
           </a>

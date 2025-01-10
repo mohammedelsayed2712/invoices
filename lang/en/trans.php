@@ -75,6 +75,8 @@ $array = [
     "project" => "project",
     'projects' => "projects",
     "image" => "image",
+    "active" => "Active",
+    "inactive" => "Inactive",
     "client" => "Client",
     "clients" => "Clients",
     "email" => "Email",
@@ -170,5 +172,8 @@ $array = [
     "total" => "Total",
     "value_status" => "Value vat",
     "note" => "Note",
+    "sections" => "Sections",
+    "created_by" => "Created_by",
+    "Add Section" => "Add Section",
 ];
 return $array;
