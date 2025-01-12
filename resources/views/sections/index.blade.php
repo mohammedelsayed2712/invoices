@@ -66,6 +66,7 @@
         <h6 class="modal-title" id="exampleModalLabel1">@lang("trans.Add Section")</h6>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+
       <form action="{{ route('sections.store') }}" method="POST">
         @csrf
         <div class="modal-body">
@@ -90,9 +91,6 @@
           <div class="form-group">
             <label for="status"><strong>@lang('trans.status')</strong></label>
             <select name="status" id="status" class="form-control @error('status') is-invalid @enderror">
-              {{-- <option value="active" {{ old('status')=='active' ? 'selected' : '' }}>@lang('trans.active')</option>
-              <option value="inactive" {{ old('status')=='inactive' ? 'selected' : '' }}>@lang('trans.inactive')
-              </option> --}}
               <option value="active">@lang('trans.active')</option>
               <option value="inactive">@lang('trans.inactive')</option>
             </select>
@@ -106,7 +104,40 @@
           <button type="submit" class="btn btn-primary">@lang("trans.save")</button>
         </div>
       </form>
+
     </div>
   </div>
 </div>
 @endsection
+
+{{-- <script>
+  $(document).ready(function () {
+      // Handle form submission
+      $('#sectionForm').on('submit', function (e) {
+          e.preventDefault(); // Prevent the default form submission
+
+          // Clear previous errors
+          $('.text-danger').text('');
+
+          // Submit the form via AJAX
+          $.ajax({
+              url: $(this).attr('action'),
+              method: $(this).attr('method'),
+              data: $(this).serialize(),
+              success: function (response) {
+                  // If the submission is successful, reload the page or update the table
+                  window.location.reload();
+              },
+              error: function (xhr) {
+                  // If there are validation errors, display them in the modal
+                  var errors = xhr.responseJSON.errors;
+                  if (errors) {
+                      for (var key in errors) {
+                          $('#' + key + 'Error').text(errors[key][0]);
+                      }
+                  }
+              }
+          });
+      });
+  });
+</script> --}}
