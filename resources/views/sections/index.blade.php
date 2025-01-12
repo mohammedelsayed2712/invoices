@@ -9,10 +9,6 @@
   <div class="card custom-card">
     <div class="card-header justify-content-between">
       <div class="card-title">{{ __('trans.sections') }}</div>
-      {{-- <div class="prism-toggle">
-        <a href="{{ route('sections.create') }}" class="btn btn-primary m-1">@lang("trans.AddNew")<i
-            class="bi bi-plus-lg ms-2"></i></a>
-      </div> --}}
       <div class="prism-toggle">
         <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">@lang("trans.AddNew")</a>
       </div>
@@ -35,7 +31,6 @@
             <td>{{ $section->id}}</td>
             <td>{{ $section->name }}</td>
             <td>{{ $section->description }}</td>
-            {{-- <td>{{ $section->status }}</td> --}}
             <td>
               @if ($section->status == 'active')
               <span class="btn btn-primary btn-wave">@lang('trans.active')</span>
@@ -46,18 +41,11 @@
             <td>{{ $section->created_at->diffForHumans() }}</td>
 
             <td>
-              {{-- <div class="hstack gap-2 fs-15">
-                <a href="edit-products.html" class="btn btn-icon btn-sm btn-info-light"><i class="ri-edit-line"></i></a>
-                <a href="javascript:void(0);" class="btn btn-icon btn-sm btn-danger-light product-btn"><i
-                    class="ri-delete-bin-line"></i></a>
-              </div> --}}
               <button class="btn btn-icon btn-sm btn-info-light" data-id="{{ $section->id }}"
                 data-name="{{ $section->name }}" data-status="{{ $section->status }}" data-price="{{ $section->price }}"
                 data-bs-toggle="modal" data-bs-target="#editModal">
-                {{-- icon --}}
                 <i class="ri-edit-line"></i></button>
               <button class="btn btn-icon btn-sm btn-danger-light product-btn" data-id="{{ $section->id }}">
-                {{-- icon --}}
                 <i class="ri-delete-bin-line"></i></button>
             </td>
 
@@ -114,8 +102,8 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@lang('trans.close')</button>
+          <button type="submit" class="btn btn-primary">@lang("trans.save")</button>
         </div>
       </form>
     </div>

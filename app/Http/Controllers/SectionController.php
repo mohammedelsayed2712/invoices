@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Section;
 use GuzzleHttp\Promise\Create;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class SectionController extends Controller
 {
@@ -35,7 +36,7 @@ class SectionController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'description' => 'nullable|string',
+            'description' => 'required|string',
             'status' => 'required|in:active,inactive',
         ]);
 
@@ -45,7 +46,9 @@ class SectionController extends Controller
             'status' => $request->status,
         ]);
 
-        return redirect()->route('sections.index')->with('success', 'Section created successfully!');
+        Alert::toast(__("trans.data_saved_successfully"), 'success');
+
+        return redirect()->route('sections.index');
     }
 
     /**
@@ -69,7 +72,7 @@ class SectionController extends Controller
      */
     public function update(Request $request, Section $section)
     {
-        //
+        // Alert::toast(__("trans.data_updated_successfully"), 'success');
     }
 
     /**
@@ -77,6 +80,6 @@ class SectionController extends Controller
      */
     public function destroy(Section $section)
     {
-        //
+        // Alert::toast(__("data_deleted_successfully"), 'success');
     }
 }

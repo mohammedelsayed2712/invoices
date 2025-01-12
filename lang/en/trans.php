@@ -10,6 +10,7 @@ $array = [
     "edit" => "Edit",
     "delete" => "Delete",
     "save" => "Save",
+    "close" => "Close",
     "show" => "Show",
     "add" => "Add",
     "all" => "All",
