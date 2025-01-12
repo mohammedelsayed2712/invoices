@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SectionRequest;
 use App\Models\Section;
 use GuzzleHttp\Promise\Create;
 use Illuminate\Http\Request;
@@ -32,22 +33,11 @@ class SectionController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(SectionRequest $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'description' => 'required|string',
-            'status' => 'required|in:active,inactive',
-        ]);
-
-        Section::Create([
-            'name' => $request->name,
-            'description' => $request->description,
-            'status' => $request->status,
-        ]);
+        $this->model->create($request->validated());
 
         Alert::toast(__("trans.data_saved_successfully"), 'success');
-
         return redirect()->route('sections.index');
     }
 
