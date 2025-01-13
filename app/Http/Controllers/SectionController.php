@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\SectionRequest;
 use App\Models\Section;
 use GuzzleHttp\Promise\Create;
 use Illuminate\Http\Request;
-use RealRashid\SweetAlert\Facades\Alert;
 
 class SectionController extends Controller
 {
@@ -33,12 +31,27 @@ class SectionController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(SectionRequest $request)
-    {
-        $this->model->create($request->validated());
+    // public function store(SectionRequest $request)
+    // {
+    //     $this->model->create($request->validated());
 
-        Alert::toast(__("trans.data_saved_successfully"), 'success');
-        return redirect()->route('sections.index');
+    //     Alert::toast(__("trans.data_saved_successfully"), 'success');
+    //     return redirect()->route('sections.index');
+    // }
+    public function store(Request $request)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'status' => 'required|in:active,inactive',
+        ]);
+
+        $section = Section::create($validatedData);
+
+        return response()->json([
+            'success' => true,
+            'section' => $section,
+        ]);
     }
 
     /**
