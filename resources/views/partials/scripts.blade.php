@@ -55,3 +55,10 @@
 <!-- Other JavaScript files -->
 {{-- <script src="{{ asset('vendor/sweetalert/sweetalert.min.js') }}"></script> --}}
 <script src="{{ asset('assets/libs/sweetalert2/sweetalert2.min.js') }}"></script>
+
+<!-- Prism JS -->
+<script src="{{ asset('assets/libs/prismjs/prism.js') }}"></script>
+<script src="{{ asset('assets/js/prism-custom.js') }}"></script>
+
+<!-- Modal JS -->
+<script src="{{ asset('assets/js/modal.js') }}"></script>

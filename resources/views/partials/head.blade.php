@@ -53,4 +53,7 @@
 
   <!-- Main Theme JS -->
   <script src="{{ asset('assets/js/main.js') }}"></script>
+
+  <!-- Prism CSS -->
+  <link rel="stylesheet" href="{{ asset('assets/libs/prismjs/themes/prism-coy.min.css') }}">
 </head>

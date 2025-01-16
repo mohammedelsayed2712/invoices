@@ -10,8 +10,12 @@
     <div class="card-header justify-content-between">
       <div class="card-title">{{ __('trans.sections') }}</div>
       <div class="prism-toggle">
-        <a href="{{ route('sections.create') }}" class="btn btn-primary m-1">@lang("trans.AddNew")<i
-            class="bi bi-plus-lg ms-2"></i></a>
+        {{-- <a href="{{ route('sections.create') }}" class="btn btn-primary m-1">@lang("trans.AddNew")<i
+            class="bi bi-plus-lg ms-2"></i></a> --}}
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          {{-- Launch demo modal --}}
+          @lang("trans.AddNew")
+        </button>
       </div>
     </div>
     <div class="card-body">
@@ -53,4 +57,23 @@
 
 
 {{-- model add --}}
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h6 class="modal-title" id="exampleModalLabel1">Modal title</h6>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save
+          changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 @endsection
