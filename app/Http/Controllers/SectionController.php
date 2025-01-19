@@ -1,10 +1,11 @@
 <?php
-
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SectionRequest;
 use App\Models\Section;
 use GuzzleHttp\Promise\Create;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class SectionController extends Controller
 {
@@ -31,27 +32,12 @@ class SectionController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    // public function store(SectionRequest $request)
-    // {
-    //     $this->model->create($request->validated());
-
-    //     Alert::toast(__("trans.data_saved_successfully"), 'success');
-    //     return redirect()->route('sections.index');
-    // }
-    public function store(Request $request)
+    public function store(SectionRequest $request)
     {
-        $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'status' => 'required|in:active,inactive',
-        ]);
+        $this->model->create($request->validated());
 
-        $section = Section::create($validatedData);
-
-        return response()->json([
-            'success' => true,
-            'section' => $section,
-        ]);
+        Alert::toast(__("trans.data_saved_successfully"), 'success');
+        return redirect()->route('sections.index');
     }
 
     /**
@@ -81,8 +67,11 @@ class SectionController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Section $section)
+    public function destroy($id)
     {
-        // Alert::toast(__("data_deleted_successfully"), 'success');
+        $model = $this->model->findOrFail($id);
+        $model->delete();
+        Alert::toast(__("trans.data_deleted_successfully"), 'success');
+        return redirect()->route('sections.index');
     }
 }
