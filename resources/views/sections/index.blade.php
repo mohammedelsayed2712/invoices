@@ -38,8 +38,8 @@
             <td>
               <div class="hstack gap-2 fs-15">
                 <a href="edit-products.html" class="btn btn-icon btn-sm btn-info-light"><i class="ri-edit-line"></i></a>
-                <button class="btn btn-icon btn-sm btn-danger-light product-btn" data-id="{{ $section->id }}"><i
-                    class="ri-delete-bin-line"></i></button>
+                <a href="javascript:void(0);" class="btn btn-icon btn-sm btn-danger-light product-btn"><i
+                    class="ri-delete-bin-line"></i></a>
               </div>
             </td>
           </tr>
@@ -86,7 +86,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@lang('trans.close')</button>
           <button type="submit" class="btn btn-primary">@lang('trans.save')</button>
         </div>
       </form>
@@ -97,58 +97,74 @@
 
 @section('scripts')
 <script>
+  // Clear validation errors when the modal is opened
+  $('#exampleModal').on('show.bs.modal', function () {
+    document.querySelectorAll('.text-danger').forEach(el => el.textContent = '');
+  });
+
+  // Handle form submission
   document.getElementById('createSectionForm').addEventListener('submit', function (e) {
     e.preventDefault(); // Prevent the default form submission
 
     const form = e.target;
     const formData = new FormData(form);
 
+    // Clear previous error messages
+    document.querySelectorAll('.text-danger').forEach(el => el.textContent = '');
+
     fetch(form.action, {
       method: 'POST',
       body: formData,
       headers: {
         'X-CSRF-TOKEN': '{{ csrf_token() }}', // Add CSRF token
+        'Accept': 'application/json', // Ensure the response is JSON
       },
     })
-      .then(response => response.json())
-      .then(data => {
-        if (data.success) {
-          // Close the modal
-          $('#exampleModal').modal('hide');
+    .then(response => {
+      if (!response.ok) {
+        return response.json().then(err => { throw err; });
+      }
+      return response.json();
+    })
+    .then(data => {
+      if (data.success) {
+        // Close the modal
+        $('#exampleModal').modal('hide');
 
-          // Clear the form
-          form.reset();
+        // Clear the form
+        form.reset();
 
-          // Add the new section to the table dynamically
-          const newRow = `
-            <tr>
-              <td>${data.section.id}</td>
-              <td>${data.section.name}</td>
-              <td>${data.section.description}</td>
-              <td>${data.section.status}</td>
-              <td>Just now</td>
-              <td>
-                <div class="hstack gap-2 fs-15">
-                  <a href="edit-products.html" class="btn btn-icon btn-sm btn-info-light"><i class="ri-edit-line"></i></a>
-                  <a href="javascript:void(0);" class="btn btn-icon btn-sm btn-danger-light product-btn"><i
-                      class="ri-delete-bin-line"></i></a>
-                </div>
-              </td>
-            </tr>
-          `;
-          document.getElementById('sectionsTableBody').insertAdjacentHTML('beforeend', newRow);
-        } else {
-          // Handle validation errors
-          const errors = data.errors;
-          for (const field in errors) {
-            const errorMessage = errors[field][0];
-            document.getElementById(`edit${field.charAt(0).toUpperCase() + field.slice(1)}Error`).textContent = errorMessage;
-          }
+        // Add the new section to the table dynamically
+        const newRow = `
+          <tr>
+            <td>${data.section.id}</td>
+            <td>${data.section.name}</td>
+            <td>${data.section.description}</td>
+            <td>${data.section.status}</td>
+            <td>Just now</td>
+            <td>
+              <div class="hstack gap-2 fs-15">
+                <a href="edit-products.html" class="btn btn-icon btn-sm btn-info-light"><i class="ri-edit-line"></i></a>
+                <a href="javascript:void(0);" class="btn btn-icon btn-sm btn-danger-light product-btn"><i
+                    class="ri-delete-bin-line"></i></a>
+              </div>
+            </td>
+          </tr>
+        `;
+        document.getElementById('sectionsTableBody').insertAdjacentHTML('beforeend', newRow);
+      }
+    })
+    .catch(error => {
+      // Handle validation errors
+      if (error.errors) {
+        for (const field in error.errors) {
+          const errorMessage = error.errors[field][0];
+          document.getElementById(`edit${field.charAt(0).toUpperCase() + field.slice(1)}Error`).textContent = errorMessage;
         }
-      })
-      .catch(error => {
+      } else {
         console.error('Error:', error);
-      });
+      }
+    });
   });
 </script>
 @endsection

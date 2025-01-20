@@ -67,11 +67,28 @@ class SectionController extends Controller
     /**
      * Remove the specified resource from storage.
      */
+    // public function destroy($id)
+    // {
+    //     $model = $this->model->findOrFail($id);
+    //     $model->delete();
+    //     Alert::toast(__("trans.data_deleted_successfully"), 'success');
+    //     return redirect()->route('sections.index');
+    // }
+    // public function destroy($id)
+    // {
+    //     $section = Section::findOrFail($id);
+    //     $section->delete();
+
+    //     return response()->json(['success' => true]);
+    // }
     public function destroy($id)
     {
-        $model = $this->model->findOrFail($id);
-        $model->delete();
-        Alert::toast(__("trans.data_deleted_successfully"), 'success');
-        return redirect()->route('sections.index');
+        $section = Section::findOrFail($id);
+        $section->delete();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Section deleted successfully!',
+        ]);
     }
 }
