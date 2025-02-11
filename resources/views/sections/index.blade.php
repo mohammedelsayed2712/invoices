@@ -10,12 +10,14 @@
     <div class="col-12">
       <div class="card">
         <div class="card-header">
+          <div class="card-title">
+            @lang('trans.invoices')
+          </div>
           <h4 class="card-title">
             <button class="btn btn-md btn-success" data-bs-toggle="modal" data-bs-target="#addModal">
               <i class="ft-plus"></i> @lang('trans.add')
             </button>
           </h4>
-          <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
         </div>
         <div class="card-content py-2 collapse show">
           <table

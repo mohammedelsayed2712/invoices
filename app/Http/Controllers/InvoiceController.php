@@ -1,9 +1,9 @@
 <?php
-
 namespace App\Http\Controllers;
 
+use App\Http\Requests\InvoiceRequest;
 use App\Models\Invoice;
-use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class InvoiceController extends Controller
 {
@@ -15,7 +15,7 @@ class InvoiceController extends Controller
      */
     public function index()
     {
-        $model = $this->model->all();
+        $models = $this->model->all();
         return view('invoices.index', get_defined_vars());
     }
 
@@ -30,40 +30,40 @@ class InvoiceController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(InvoiceRequest $request)
     {
-        //
+        $this->model->create($request->validated());
+        Alert::toast(__("trans.data_saved_successfully"), 'success');
+        return redirect()->route('invoices.index');
     }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Invoice $invoice)
-    {
-        //
-    }
-
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Invoice $invoice)
+    public function edit($id)
     {
-        //
+        $model = $this->model->findOrFail($id);
+        return view('invoices.edit', get_defined_vars());
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Invoice $invoice)
+    public function update(InvoiceRequest $request, $id)
     {
-        //
+        $model = $this->model->findOrFail($id);
+        $model->update($request->validated());
+        Alert::toast(__("trans.data_updated_successfully"), 'success');
+        return redirect()->route('invoices.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Invoice $invoice)
+    public function destroy($id)
     {
-        //
+        $model = $this->model->findOrFail($id);
+        $model->delete();
+        Alert::toast(__("trans.data_deleted_successfully"), 'success');
+        return redirect()->route('invoices.index');
     }
 }
