@@ -41,13 +41,21 @@
                   <td>{{ $model->invoice_number }}</td>
                   <td>{{ $model->product }}</td>
                   <td>{{ $model->section }}</td>
-                  <td>{{ $model->status }}</td>
+                  {{-- <td>{{ __('trans.' . $model->status) }}</td> --}}
+                  <td>
+                    @if ($model->status == 'active')
+                    <span class="btn btn-success">@lang('trans.active')</span>
+                    @else
+                    <span class="btn btn-danger">@lang('trans.inactive')</span>
+                    @endif
+                  </td>
+
                   <td>{{ $model->created_at->diffForHumans() }}</td>
                   <td>
                     <div class="hstack gap-2 flex-wrap">
                       <a href="{{ route('invoices.edit', $model->id) }}" class="text-info fs-14 lh-1"><i
                           class="ri-edit-line"></i></a>
-                      <a href="{{ route('invoices.delete', $model->id) }}" class="text-danger fs-14 lh-1"><i
+                      <a href="{{ route('invoices.destroy', $model->id) }}" class="text-danger fs-14 lh-1"><i
                           class="ri-delete-bin-5-line"></i></a>
                     </div>
                   </td>

@@ -10,7 +10,7 @@ class InvoiceRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -28,8 +28,8 @@ class InvoiceRequest extends FormRequest
             'due_date'       => 'required|date|after_or_equal:invoice_date',
             'product'        => 'required|string|max:255',
             'section'        => 'required|string|max:255',
-            'discount'       => 'required|string|max:255',
-            'rate_vat'       => 'required|string|max:255',
+            'discount'       => 'required|numeric',
+            'rate_vat'       => 'required|numeric',
             'value_vat'      => 'required|numeric',
             'total'          => 'required|numeric',
             'status'         => ['required', 'in:active,inactive'],
