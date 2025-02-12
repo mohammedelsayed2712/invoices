@@ -16,7 +16,7 @@ Route::group(
         Auth::routes();
         Route::group(['middleware' => "auth:web"], function () {
             Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-            Route::resource('invoices', InvoiceController::class);
+            Route::resource('invoices', InvoiceController::class)->except('show');
             Route::resource('sections', SectionController::class);
 
             Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');

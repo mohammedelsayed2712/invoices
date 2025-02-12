@@ -20,10 +20,10 @@ class InvoiceRequest extends FormRequest
      */
     public function rules(): array
     {
-        $invoiceId = $this->route('invoice') ? $this->route('invoice')->id : null;
+        $id = $this->route()->parameter('invoice');
 
         return [
-            'invoice_number' => 'required|string|unique:invoices,invoice_number,' . $invoiceId,
+            'invoice_number' => 'required|string|unique:invoices,invoice_number,' . $id,
             'invoice_date'   => 'required|date',
             'due_date'       => 'required|date|after_or_equal:invoice_date',
             'product'        => 'required|string|max:255',

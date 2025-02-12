@@ -58,12 +58,12 @@
     <!-- Footer End -->
   </div>
 
-  <script src="{{ asset('assets/js/jquery-3.7.1.min.js') }}"></script>
+  {{-- <script src="{{ asset('assets/js/jquery-3.7.1.min.js') }}"></script>
 
   <div class="scrollToTop">
     <span class="arrow"><i class="ri-arrow-up-s-fill fs-20"></i></span>
   </div>
-  <div id="responsive-overlay"></div>
+  <div id="responsive-overlay"></div> --}}
 
   @include('partials.scripts')
 </body>

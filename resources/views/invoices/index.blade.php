@@ -22,7 +22,7 @@
         </div>
         <div class="card-body">
           <div class="table-responsive">
-            <table class="table text-nowrap">
+            <table id="file-export" class="table table-bordered text-nowrap" style="width: 100%">
               <thead>
                 <tr>
                   <th scope="col">SL</th>
@@ -51,13 +51,26 @@
                   </td>
 
                   <td>{{ $model->created_at->diffForHumans() }}</td>
-                  <td>
+                  {{-- <td>
                     <div class="hstack gap-2 flex-wrap">
                       <a href="{{ route('invoices.edit', $model->id) }}" class="text-info fs-14 lh-1"><i
                           class="ri-edit-line"></i></a>
                       <a href="{{ route('invoices.destroy', $model->id) }}" class="text-danger fs-14 lh-1"><i
                           class="ri-delete-bin-5-line"></i></a>
                     </div>
+                  </td> --}}
+                  <td>
+                    <a href="{{ route('invoices.edit', $model->id) }}" class="btn btn-info btn-sm text-white">
+                      <i class="fas fa-edit small"></i> @lang('trans.edit')
+                    </a>
+
+                    <form action="{{ route('invoices.destroy', $model->id) }}" method="POST" style="display:inline;">
+                      @csrf
+                      @method('DELETE')
+                      <button type="submit" class="btn btn-danger btn-sm delete">
+                        <i class="fas fa-trash small"></i> @lang('trans.delete')
+                      </button>
+                    </form>
                   </td>
                 </tr>
                 @endforeach

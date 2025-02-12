@@ -15,8 +15,7 @@ class InvoiceController extends Controller
      */
     public function index()
     {
-        // $models = $this->model->all();
-        $models = Invoice::paginate(10);
+        $models = $this->model->all();
         return view('invoices.index', get_defined_vars());
     }
 
@@ -26,7 +25,6 @@ class InvoiceController extends Controller
     public function create()
     {
         return view('invoices.create');
-
     }
 
     /**
@@ -43,8 +41,9 @@ class InvoiceController extends Controller
      */
     public function edit($id)
     {
-        $model = $this->model->findOrFail($id);
-        return view('invoices.edit', get_defined_vars());
+        $invoice = Invoice::findOrFail($id);
+
+        return view('invoices.edit', compact('invoice'));
     }
 
     /**

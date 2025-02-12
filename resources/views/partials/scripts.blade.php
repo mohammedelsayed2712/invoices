@@ -35,6 +35,9 @@
 <!-- CRM-Dashboard -->
 <script src="{{ asset('assets/js/crm-dashboard.js') }}"></script>
 
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"
+  integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
 <!-- Datatables Cdn -->
 <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
@@ -46,14 +49,19 @@
 <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 
+<div class="scrollToTop">
+  <span class="arrow"><i class="ri-arrow-up-s-fill fs-20"></i></span>
+</div>
+<div id="responsive-overlay"></div>
+
 <!-- Internal Datatables JS -->
 <script src="{{ asset('assets/js/datatables.js') }}"></script>
 
 <!-- Custom JS -->
 <script src="{{ asset('assets/js/custom.js') }}"></script>
 
+
 <!-- Other JavaScript files -->
-{{-- <script src="{{ asset('vendor/sweetalert/sweetalert.min.js') }}"></script> --}}
 <script src="{{ asset('assets/libs/sweetalert2/sweetalert2.min.js') }}"></script>
 
 <!-- Prism JS -->
