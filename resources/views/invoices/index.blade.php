@@ -30,7 +30,7 @@
                   <th scope="col">@lang('trans.product')</th>
                   <th scope="col">@lang('trans.section')</th>
                   <th scope="col">@lang('trans.status')</th>
-                  <th>@lang('trans.created_at')</th>
+                  <th scope="col">@lang('trans.created_at')</th>
                   <th scope="col">@lang('trans.actions')</th>
                 </tr>
               </thead>
@@ -51,14 +51,6 @@
                   </td>
 
                   <td>{{ $model->created_at->diffForHumans() }}</td>
-                  {{-- <td>
-                    <div class="hstack gap-2 flex-wrap">
-                      <a href="{{ route('invoices.edit', $model->id) }}" class="text-info fs-14 lh-1"><i
-                          class="ri-edit-line"></i></a>
-                      <a href="{{ route('invoices.destroy', $model->id) }}" class="text-danger fs-14 lh-1"><i
-                          class="ri-delete-bin-5-line"></i></a>
-                    </div>
-                  </td> --}}
                   <td>
                     <a href="{{ route('invoices.edit', $model->id) }}" class="btn btn-info btn-sm text-white">
                       <i class="fas fa-edit small"></i> @lang('trans.edit')
