@@ -17,7 +17,7 @@ Route::group(
         Route::group(['middleware' => "auth:web"], function () {
             Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
             Route::resource('invoices', InvoiceController::class)->except('show');
-            Route::resource('sections', SectionController::class);
+            Route::resource('sections', SectionController::class)->except('show');
 
             Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
             Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');

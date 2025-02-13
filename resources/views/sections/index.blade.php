@@ -11,7 +11,7 @@
       <div class="card custom-card">
         <div class="card-header justify-content-between">
           <div class="card-title">
-            @lang('trans.invoices')
+            @lang('trans.sections')
           </div>
           <div class="prism-toggle">
             <a href="{{ route('sections.create') }}" class="btn btn-primary btn-sm right">
@@ -34,27 +34,27 @@
                 </tr>
               </thead>
               <tbody>
-                @foreach ($models as $model)
+                @foreach ($model as $section)
                 <tr>
                   <td>{{ $loop->iteration }}</td>
-                  <td>{{ $model->name }}</td>
-                  <td>{{ $model->description }}</td>
-                  {{-- <td>{{ __('trans.' . $model->status) }}</td> --}}
+                  <td>{{ $section->name }}</td>
+                  <td>{{ $section->description }}</td>
+                  {{-- <td>{{ __('trans.' . $section->status) }}</td> --}}
                   <td>
-                    @if ($model->status == 'active')
+                    @if ($section->status == 'active')
                     <span class="btn btn-success">@lang('trans.active')</span>
                     @else
                     <span class="btn btn-danger">@lang('trans.inactive')</span>
                     @endif
                   </td>
 
-                  <td>{{ $model->created_at->diffForHumans() }}</td>
+                  <td>{{ $section->created_at->diffForHumans() }}</td>
                   <td>
-                    <a href="{{ route('sections.edit', $model->id) }}" class="btn btn-info btn-sm text-white">
+                    <a href="{{ route('sections.edit', $section->id) }}" class="btn btn-info btn-sm text-white">
                       <i class="fas fa-edit small"></i> @lang('trans.edit')
                     </a>
 
-                    <form action="{{ route('sections.destroy', $model->id) }}" method="POST" style="display:inline;">
+                    <form action="{{ route('sections.destroy', $section->id) }}" method="POST" style="display:inline;">
                       @csrf
                       @method('DELETE')
                       <button type="submit" class="btn btn-danger btn-sm delete">

@@ -3,7 +3,7 @@
 @section('title', __('trans.create_new'))
 
 @section('breadcrumb')
-<li class="breadcrumb-item"><a href="{{ route('invoices.index') }}">@lang('trans.invoices')</a></li>
+<li class="breadcrumb-item"><a href="{{ route('sections.index') }}">@lang('trans.sections')</a></li>
 <li class="breadcrumb-item">@lang('trans.create')</li>
 @endsection
 
@@ -14,10 +14,10 @@
       <div class="card">
         <div class="card-content collapse show">
           <div class="card-body">
-            <form action="{{ route('invoices.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('sections.store') }}" method="POST" enctype="multipart/form-data">
               @csrf
-              @include('invoices.form')
-              <button type="submit" class="btn btn-primary">@lang('trans.save')</button>
+              @include('sections.form')
+              <button type="submit" class="btn btn-primary mt-2">@lang('trans.save')</button>
             </form>
           </div>
         </div>

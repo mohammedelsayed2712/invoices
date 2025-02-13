@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
@@ -23,17 +22,13 @@ class SectionRequest extends FormRequest
     public function rules(): array
     {
         // Get the section ID from the route parameters (if it exists)
-        $sectionId = $this->route('section') ? $this->route('section')->id : null;
+        // $sectionId = $this->route('section') ? $this->route('section')->id : null;
+        $id = $this->route()->parameter('section');
 
         return [
-            'name' => [
-                'required',
-                'string',
-                'max:255',
-                Rule::unique('sections', 'name')->ignore($sectionId),
-            ],
+            'name'        => ['required', 'string', 'max:255' . $id],
             'description' => 'required|string',
-            'status' => 'required|string|in:active,inactive',
+            'status'      => 'required|string|in:active,inactive',
         ];
     }
 }
