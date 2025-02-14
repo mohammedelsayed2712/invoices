@@ -19,7 +19,7 @@
                 @csrf
                 @method('PUT')
                 @include('sections.form')
-                <button type="submit" class="btn btn-primary">@lang('trans.save')</button>
+                <button type="submit" class="btn btn-primary mt-2">@lang('trans.save')</button>
               </form>
             </div>
           </div>
