@@ -9,12 +9,26 @@
   </div>
 
   <!-- Section Field -->
-  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
+  {{-- <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
     <label for="section_id" class="form-label">@lang('trans.sections')</label>
     <select name=" section_id" id="section_id" class="form-control">
       <option value="">{{ __('trans.select_section') }}</option>
       @foreach($sections as $id => $name)
       <option value="{{ $id }}" {{ old($name)==$id ? 'selected' : '' }}>
+        {{ $name }}
+      </option>
+      @endforeach
+    </select>
+    @error('section_id')
+    <span class="text-danger">{{ $message }}</span>
+    @enderror
+  </div> --}}
+  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
+    <label for="section_id" class="form-label">@lang('trans.sections')</label>
+    <select name="section_id" id="section_id" class="form-control">
+      <option value="">{{ __('trans.select_section') }}</option>
+      @foreach($sections as $id => $name)
+      <option value="{{ $id }}" {{ ($model->section_id ?? old('section_id')) == $id ? 'selected' : '' }}>
         {{ $name }}
       </option>
       @endforeach
