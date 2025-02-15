@@ -69,7 +69,7 @@ $array = [
     "edit_profile_info"                   => "Edit Profile Info",
     "password_confirmation"               => "Password Confirmation",
     'password'                            => "Password",
-    'status'                              => "status",
+    'status'                              => "Status",
     "done"                                => "done",
     "waiting"                             => "waiting",
     'not_done'                            => "not done",
@@ -127,7 +127,7 @@ $array = [
     'price'                               => 'price',
     'paid_before'                         => 'Paid Before',
     'title'                               => 'Title',
-    'description'                         => 'description',
+    'description'                         => 'Description',
     'settings'                            => "Settings",
     'users'                               => "Users",
     'user'                                => "User",
@@ -176,6 +176,7 @@ $array = [
     "sections"                            => "Sections",
     "created_by"                          => "Created_by",
     "Add Section"                         => "Add Section",
+    "select_section"                      => "Select Section",
 
     // Invoices
     "add_item"                            => "Add Item",

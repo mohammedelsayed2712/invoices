@@ -227,6 +227,7 @@ $array = [
     "note"                                => "ملاحظات",
     "sections"                            => "الأقسام",
     "Add Section"                         => "إضافة قسم",
+    "select_section"                      => "اختر القسم",
 
     "add_item"                            => "إضافة جديد",
 ];
