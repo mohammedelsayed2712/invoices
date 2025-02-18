@@ -14,8 +14,8 @@
             @lang('trans.products')
           </div>
           <div class="prism-toggle">
-            <a href="{{ route('products.create') }}" class="btn btn-primary btn-sm right">
-              <i class="fas fa-plus">@lang('trans.add_item')</i>
+            <a href="{{ route('products.create') }}" class="btn btn-md btn-primary">@lang('trans.add_item') <i
+                class="fas fa-plus"></i>
             </a>
           </div>
 

@@ -180,5 +180,7 @@ $array = [
 
     // Invoices
     "add_item"                            => "Add Item",
+    "amount_collection"                   => "Amount Collection",
+    "amount_commission"                   => "Amount Commission",
 ];
 return $array;

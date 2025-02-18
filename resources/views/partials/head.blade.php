@@ -43,6 +43,9 @@
   <!-- Icons CSS -->
   <link href="{{ asset('assets/css/icons.css') }}" rel="stylesheet" />
 
+  <!-- Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <!-- Node Waves CSS -->
   <link href="{{ asset('assets/libs/node-waves/waves.min.css') }}" rel="stylesheet" />
 
@@ -76,4 +79,7 @@
 
   <!-- Prism CSS -->
   <link rel="stylesheet" href="{{ asset('assets/libs/prismjs/themes/prism-coy.min.css') }}">
+
+  <!-- JQuery -->
+  {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
 </head>

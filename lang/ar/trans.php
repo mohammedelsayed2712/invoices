@@ -228,7 +228,8 @@ $array = [
     "sections"                            => "الأقسام",
     "Add Section"                         => "إضافة قسم",
     "select_section"                      => "اختر القسم",
-
     "add_item"                            => "إضافة جديد",
+    "amount_collection"                   => "المبلغ المحصل",
+    "amount_commission"                   => "المبلغ العمولة",
 ];
 return $array;

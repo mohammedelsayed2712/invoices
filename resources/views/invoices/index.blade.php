@@ -14,8 +14,8 @@
             @lang('trans.invoices')
           </div>
           <div class="prism-toggle">
-            <a href="{{ route('invoices.create') }}" class="btn btn-primary btn-sm right">
-              <i class="fas fa-plus">@lang('trans.add_item')</i>
+            <a href="{{ route('invoices.create') }}" class="btn btn-md btn-primary">@lang('trans.add_item') <i
+                class="fas fa-plus"></i>
             </a>
           </div>
 
@@ -35,28 +35,28 @@
                 </tr>
               </thead>
               <tbody>
-                @foreach ($models as $model)
+                @foreach ($invoices as $invoice)
                 <tr>
                   <td>{{ $loop->iteration }}</td>
-                  <td>{{ $model->invoice_number }}</td>
-                  <td>{{ $model->product }}</td>
-                  <td>{{ $model->section }}</td>
-                  {{-- <td>{{ __('trans.' . $model->status) }}</td> --}}
+                  <td>{{ $invoice->invoice_number }}</td>
+                  <td>{{ $invoice->product }}</td>
+                  <td>{{ $invoice->section->name }}</td>
+                  {{-- <td>{{ __('trans.' . $invoice->status) }}</td> --}}
                   <td>
-                    @if ($model->status == 'active')
+                    @if ($invoice->status == 'active')
                     <span class="btn btn-success">@lang('trans.active')</span>
                     @else
                     <span class="btn btn-danger">@lang('trans.inactive')</span>
                     @endif
                   </td>
 
-                  <td>{{ $model->created_at->diffForHumans() }}</td>
+                  <td>{{ $invoice->created_at->diffForHumans() }}</td>
                   <td>
-                    <a href="{{ route('invoices.edit', $model->id) }}" class="btn btn-info btn-sm text-white">
+                    <a href="{{ route('invoices.edit', $invoice->id) }}" class="btn btn-info btn-sm text-white">
                       <i class="fas fa-edit small"></i> @lang('trans.edit')
                     </a>
 
-                    <form action="{{ route('invoices.destroy', $model->id) }}" method="POST" style="display:inline;">
+                    <form action="{{ route('invoices.destroy', $invoice->id) }}" method="POST" style="display:inline;">
                       @csrf
                       @method('DELETE')
                       <button type="submit" class="btn btn-danger btn-sm delete">

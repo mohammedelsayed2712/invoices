@@ -23,19 +23,24 @@ class InvoiceRequest extends FormRequest
         $id = $this->route()->parameter('invoice');
 
         return [
-            'invoice_number' => 'required|string|unique:invoices,invoice_number,' . $id,
-            'invoice_date'   => 'required|date',
-            'due_date'       => 'required|date|after_or_equal:invoice_date',
-            'product'        => 'required|string|max:255',
-            'section'        => 'required|string|max:255',
-            'discount'       => 'required|numeric',
-            'rate_vat'       => 'required|numeric',
-            'value_vat'      => 'required|numeric',
-            'total'          => 'required|numeric',
-            'status'         => ['required', 'in:active,inactive'],
-            'value_status'   => 'required|integer',
-            'note'           => 'nullable|string',
-            'user'           => 'required|string|max:255',
+            // 'invoice_number'    => 'required|string|unique:invoices,invoice_number,' . $id,
+            // 'invoice_date'      => 'required|date',
+            // 'due_date'          => 'required|date|after_or_equal:invoice_date',
+            // 'product'           => 'required|string|max:255',
+            // 'section_id'        => 'required|exists:sections,id',
+            // 'amount_collection' => 'nullable|numeric|min:0',
+            // 'amount_commission' => 'required|numeric|min:0',
+            // 'discount'          => 'required|numeric|min:0',
+            // 'value_vat'         => 'required|numeric|min:0',
+            // 'rate_vat'          => 'required|numeric|min:0|max:100',
+            // 'total'             => 'required|numeric|min:0',
+            // 'status'            => 'required|string|in:active,inactive',
+            // 'value_status'      => 'required|integer',
+            // 'note'              => 'nullable|string',
+            // 'payment_date'      => 'nullable|date|after_or_equal:invoice_date',
+
+            'product'    => 'required|string|max:255',
+            'section_id' => 'required|exists:sections,id',
         ];
     }
 }

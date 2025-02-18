@@ -28,6 +28,8 @@
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
+
+
 </head>
 
 <body @if(app()->getLocale() == 'ar') dir="rtl" @endif>
@@ -107,6 +109,11 @@
             @yield('content')
         </main>
     </div>
+
+    {{-- jquery --}}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    @stack('scripts')
 </body>
 
 </html>
