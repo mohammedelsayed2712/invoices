@@ -164,7 +164,7 @@ $array = [
     "Billing reports"                     => "Billing reports",
     "Customer reports"                    => "Billing reports",
     "invoice_number"                      => "Invoice number",
-    "invoice_date"                        => "Invoice date",
+    "invoice_Date"                        => "Invoice date",
     "due_date"                            => "Due date",
     "product"                             => "Product",
     "section"                             => "Section",
@@ -182,5 +182,6 @@ $array = [
     "add_item"                            => "Add Item",
     "amount_collection"                   => "Amount Collection",
     "amount_commission"                   => "Amount Commission",
+    "payment_date"                        => "Payment Date",
 ];
 return $array;

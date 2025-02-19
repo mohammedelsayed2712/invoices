@@ -22,10 +22,10 @@
 
   {{-- Invoice Date --}}
   <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
-    <label for="invoice_date" class="form-label">@lang('trans.invoice_date')</label>
-    <input type="date" name="invoice_date" id="invoice_date" class="form-control"
-      value="{{ old('invoice_date', $invoice->invoice_date ?? '') }}">
-    @error('invoice_date')
+    <label for="invoice_Date" class="form-label">@lang('trans.invoice_Date')</label>
+    <input type="date" name="invoice_Date" id="invoice_Date" class="form-control"
+      value="{{ old('invoice_Date', $invoice->invoice_Date ?? '') }}">
+    @error('invoice_Date')
     <span class="text-danger d-block mt-2">{{ $message }}</span>
     @enderror
   </div>

@@ -24,7 +24,7 @@ class InvoiceRequest extends FormRequest
 
         return [
             'invoice_number'    => 'required|string|unique:invoices,invoice_number,' . $id,
-            'invoice_date'      => 'required|date',
+            'invoice_Date'      => 'required|date',
             'due_date'          => 'required|date|after_or_equal:invoice_date',
             // 'product'           => 'required|string|max:255',
             'product_id'        => 'required|exists:products,id',

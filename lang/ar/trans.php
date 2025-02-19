@@ -216,7 +216,7 @@ $array = [
     "Billing reports"                     => "تقارير الفواتير",
     "Customer reports"                    => "تقارير العملاء",
     "invoice_number"                      => "رقم الفاتورة",
-    "invoice_date"                        => "تاريخ الفاتورة",
+    "invoice_Date"                        => "تاريخ الفاتورة",
     "due_date"                            => "تاريخ الإستحقاق",
     "product"                             => "المنتج",
     "section"                             => "القسم",
@@ -231,5 +231,6 @@ $array = [
     "add_item"                            => "إضافة جديد",
     "amount_collection"                   => "المبلغ المحصل",
     "amount_commission"                   => "المبلغ العمولة",
+    "payment_date"                        => "تاريخ الدفع",
 ];
 return $array;
