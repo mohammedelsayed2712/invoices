@@ -13,25 +13,23 @@ return new class extends Migration
     {
         Schema::create('invoices', function (Blueprint $table) {
             $table->bigIncrements('id');
-            // $table->string('invoice_number', );
-            // $table->date('invoice_Date')->nullable();
-            // $table->date('due_date')->nullable();
-            // $table->string('product');
-
-            $table->unsignedBigInteger('product_id');
-            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
+            $table->string('invoice_number', );
+            $table->date('invoice_Date')->nullable();
+            $table->date('due_date')->nullable();
             $table->unsignedBigInteger('section_id');
             $table->foreign('section_id')->references('id')->on('sections')->onDelete('cascade');
-            // $table->decimal('amount_collection', 8, 2)->nullable();;
-            // $table->decimal('amount_commission', 8, 2);
-            // $table->decimal('discount', 8, 2);
-            // $table->decimal('value_vat', 8, 2);
-            // $table->string('rate_vat', 999);
-            // $table->decimal('total', 8, 2);
-            // $table->string('status')->default('active');
-            // $table->integer('value_status');
-            // $table->text('note')->nullable();
-            // $table->date('payment_date')->nullable();
+            $table->unsignedBigInteger('product_id');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
+            $table->decimal('amount_collection', 8, 2)->nullable();;
+            $table->decimal('amount_commission', 8, 2);
+            $table->decimal('discount', 8, 2);
+            $table->decimal('value_vat', 8, 2);
+            $table->string('rate_vat', 999);
+            $table->decimal('total', 8, 2);
+            $table->string('status')->default('active');
+            $table->integer('value_status');
+            $table->text('note')->nullable();
+            $table->date('payment_date')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

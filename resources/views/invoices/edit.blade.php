@@ -19,7 +19,7 @@
                 @csrf
                 @method('PUT')
                 @include('invoices.form')
-                <button type="submit" class="btn btn-primary">@lang('trans.save')</button>
+                <button type="submit" class="btn btn-primary mt-3">@lang('trans.save')</button>
               </form>
             </div>
           </div>

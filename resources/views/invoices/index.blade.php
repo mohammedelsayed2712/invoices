@@ -27,8 +27,8 @@
                 <tr>
                   <th scope="col">SL</th>
                   <th scope="col">@lang('trans.invoice_number')</th>
-                  <th scope="col">@lang('trans.product')</th>
                   <th scope="col">@lang('trans.section')</th>
+                  <th scope="col">@lang('trans.product')</th>
                   <th scope="col">@lang('trans.status')</th>
                   <th scope="col">@lang('trans.created_at')</th>
                   <th scope="col">@lang('trans.actions')</th>
@@ -39,8 +39,8 @@
                 <tr>
                   <td>{{ $loop->iteration }}</td>
                   <td>{{ $invoice->invoice_number }}</td>
-                  <td>{{ $invoice->product }}</td>
                   <td>{{ $invoice->section->name }}</td>
+                  <td>{{ $invoice->product->name }}</td>
                   {{-- <td>{{ __('trans.' . $invoice->status) }}</td> --}}
                   <td>
                     @if ($invoice->status == 'active')
