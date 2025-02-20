@@ -40,6 +40,7 @@
     @enderror
   </div>
 
+  <!-- Section -->
   <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
     <label for="section_id" class="form-label">@lang('trans.section')</label>
     <select name="section_id" id="section_id" class="form-control">
