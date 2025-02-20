@@ -98,7 +98,7 @@
   <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
     <label for="discount" class="form-label">@lang('trans.discount')</label>
     <input type="text" name="discount" id="discount" class="form-control"
-      value="{{ $invoice->discount ?? old('discount') }}">
+      value="{{ $invoice->discount ?? old('discount', 0) }}">
     @error('discount')
     <span class="text-danger d-block mt-2">{{ $message }}</span>
     @enderror
@@ -208,5 +208,14 @@
         }
     });
 });
+</script>
+
+<script>
+  function myFunction() {
+    var amount_commission = parseFloat($('#amount_commission').val());
+    var discount = parseFloat($('#discount').val());
+    var rate_vat = parseFloat($('#rate_vat').val());
+    var value_vat = parseFloat($('#value_vat').val());
+  }
 </script>
 @endpush

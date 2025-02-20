@@ -35,7 +35,7 @@
                 </tr>
               </thead>
               <tbody>
-                @foreach ($model as $invoice)
+                @foreach ($invoices as $invoice)
                 <tr>
                   <td>{{ $loop->iteration }}</td>
                   <td>{{ $invoice->invoice_number }}</td>
