@@ -24,7 +24,7 @@
   <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
     <label for="invoice_Date" class="form-label">@lang('trans.invoice_Date')</label>
     <input type="date" name="invoice_Date" id="invoice_Date" class="form-control"
-      value="{{ old('invoice_Date', $invoice->invoice_Date ?? '') }}">
+      value="{{ old('invoice_Date', $invoice->invoice_Date ?? date('Y-m-d')) }}">
     @error('invoice_Date')
     <span class="text-danger d-block mt-2">{{ $message }}</span>
     @enderror
@@ -178,7 +178,8 @@
 
 </div>
 
-@push('scripts')
+{{-- @push('scripts') --}}
+@section('js')
 <script>
   $(document).ready(function() {
     $('#section').on('change', function() {
@@ -211,11 +212,60 @@
 </script>
 
 <script>
+  // function myFunction() {
+  //   var amount_commission = parseFloat($('#amount_commission').val());
+  //   var discount = parseFloat($('#discount').val());
+  //   var rate_vat = parseFloat($('#rate_vat').val());
+  //   var value_vat = parseFloat($('#value_vat').val());
+
+  //   var amount_collectio2 = amount_commission - discount;
+
+  //   if (amount_commission === 'undefined' || !amount_commission) {
+  //     alert(__("trans.please_enter_the_commission_amount"));
+  //   } else {
+  //     var intResults = amount_collectio2 * rate_vat / 100;
+
+  //     var intResults2 = parseFloat(intResults + amount_collectio2);
+
+  //     sumq = parseFloat(intResults).toFixed(2);
+  //     sumt = parseFloat(intResults2).toFixed(2);
+
+  //     $('#value_vat').val(sumq);
+  //     $('#total').val(sumt);
+
+  //   }
+  // }
   function myFunction() {
-    var amount_commission = parseFloat($('#amount_commission').val());
-    var discount = parseFloat($('#discount').val());
-    var rate_vat = parseFloat($('#rate_vat').val());
-    var value_vat = parseFloat($('#value_vat').val());
-  }
+
+var amount_commission = parseFloat(document.getElementById("amount_commission").value);
+var discount = parseFloat(document.getElementById("discount").value);
+var rate_vat = parseFloat(document.getElementById("rate_vat").value);
+var value_vat = parseFloat(document.getElementById("value_vat").value);
+
+var amount_commission2 = amount_commission - discount;
+
+
+if (typeof amount_commission === 'undefined' || !amount_commission) {
+
+    alert('يرجي ادخال مبلغ العمولة ');
+
+} else {
+    var intResults = amount_commission2 * rate_vat / 100;
+
+    var intResults2 = parseFloat(intResults + amount_commission2);
+
+    sumq = parseFloat(intResults).toFixed(2);
+
+    sumt = parseFloat(intResults2).toFixed(2);
+
+    document.getElementById("value_vat").value = sumq;
+
+    document.getElementById("total").value = sumt;
+
+}
+
+}
 </script>
-@endpush
+{{-- @endpush --}}
+
+@endsection

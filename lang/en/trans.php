@@ -88,6 +88,7 @@ $array = [
     'data_saved_successfully'             => 'Data saved successfully',
     'data_updated_successfully'           => 'Data updated successfully',
     'data_deleted_successfully'           => 'Data deleted successfully',
+    'please_enter_the_commission_amount'  => 'Please enter the commission amount',
     'client_id'                           => 'Client ID',
     'bank_accounts'                       => 'Bank Accounts',
     'bank_account'                        => 'Bank Account',
@@ -177,6 +178,7 @@ $array = [
     "created_by"                          => "Created_by",
     "Add Section"                         => "Add Section",
     "select_section"                      => "Select Section",
+    "select_product"                      => "Select Product",
 
     // Invoices
     "add_item"                            => "Add Item",
