@@ -1,14 +1,4 @@
 <div class="form-body row gy-4">
-  {{-- @if ($errors->any())
-  <div class="alert alert-danger">
-    <strong>@lang('trans.error_occurred')</strong>
-    <ul>
-      @foreach ($errors->all() as $error)
-      <li>{{ $error }}</li>
-      @endforeach
-    </ul>
-  </div>
-  @endif --}}
 
   {{-- Invoice Number --}}
   <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
@@ -74,7 +64,7 @@
     @enderror
   </div>
 
-  <!-- Amount Collection Field -->
+  <!-- Amount Collection -->
   <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
     <label for="amount_collection" class="form-label">@lang('trans.amount_collection')</label>
     <input type="text" name="amount_collection" id="amount_collection" class="form-control"
@@ -84,45 +74,48 @@
     @enderror
   </div>
 
-  <!-- Amount Commission Field -->
+  <!-- Amount Commission -->
   <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
     <label for="amount_commission" class="form-label">@lang('trans.amount_commission')</label>
     <input type="text" name="amount_commission" id="amount_commission" class="form-control"
-      value="{{ $invoice->amount_commission ?? old('amount_commission') }}">
+      value="{{ $invoice->amount_commission ?? old('amount_commission') }}" oninput="myFunction()">
     @error('amount_commission')
     <span class="text-danger d-block mt-2">{{ $message }}</span>
     @enderror
   </div>
 
-  <!-- Discount Field -->
+  <!-- Discount -->
   <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
     <label for="discount" class="form-label">@lang('trans.discount')</label>
     <input type="text" name="discount" id="discount" class="form-control"
-      value="{{ $invoice->discount ?? old('discount', 0) }}">
+      value="{{ $invoice->discount ?? old('discount', 0) }}" oninput="myFunction()">
     @error('discount')
     <span class="text-danger d-block mt-2">{{ $message }}</span>
     @enderror
   </div>
 
-  <!-- Rate Vat -->
+  <!-- Rate VAT -->
   <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
     <label for="rate_vat" class="form-label">@lang('trans.rate_vat')</label>
     <input type="text" name="rate_vat" id="rate_vat" class="form-control"
-      value="{{ $invoice->rate_vat ?? old('rate_vat') }}">
+      value="{{ $invoice->rate_vat ?? old('rate_vat') }}" oninput="myFunction()">
     @error('rate_vat')
     <span class="text-danger d-block mt-2">{{ $message }}</span>
     @enderror
   </div>
 
-  {{-- Value Vat --}}
-  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
+  <!-- Value VAT -->
+  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
     <label for="value_vat" class="form-label">@lang('trans.value_vat')</label>
-    <input type="text" name="value_vat" id="value_vat" class="form-control"
-      value="{{ $invoice->value_vat ?? old('value_vat') }}">
-    @error('value_vat')
-    <span class="text-danger d-block mt-2">{{ $message }}</span>
-    @enderror
+    <input type="text" name="value_vat" id="value_vat" class="form-control" readonly>
   </div>
+
+  <!-- Total -->
+  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+    <label for="total" class="form-label">@lang('trans.total')</label>
+    <input type="text" name="total" id="total" class="form-control" readonly>
+  </div>
+
 
   {{-- Payment Date --}}
   <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
@@ -145,7 +138,7 @@
   </div>
 
   <!-- Status -->
-  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
     <label for="status" class="form-label">@lang('trans.status')</label>
     <select name="status" id="status" class="form-control">
       <option value="active" {{ ($invoice->status ?? old('status')) == 'active' ? 'selected' : ''
@@ -158,15 +151,6 @@
     @enderror
   </div>
 
-  {{-- Total --}}
-  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-    <label for="total" class="form-label">@lang('trans.total')</label>
-    <input type="number" name="total" id="total" class="form-control" value="{{ $invoice->total ?? old('total') }}">
-    @error('total')
-    <span class="text-danger d-block mt-2">{{ $message }}</span>
-    @enderror
-  </div>
-
   <!-- Note -->
   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
     <label for="note" class="form-label">@lang('trans.note')</label>
@@ -176,96 +160,36 @@
     @enderror
   </div>
 
+
 </div>
 
-{{-- @push('scripts') --}}
-@section('js')
+@push('scripts')
 <script>
-  $(document).ready(function() {
-    $('#section').on('change', function() {
-        var section_id = $(this).val();
+  document.addEventListener("DOMContentLoaded", function() {
+    function myFunction() {
+      let amount_commission = parseFloat(document.getElementById("amount_commission").value) || 0;
+      let discount = parseFloat(document.getElementById("discount").value) || 0;
+      let rate_vat = parseFloat(document.getElementById("rate_vat").value) || 0;
 
-        if (section_id) {
-            $.ajax({
-                url: "{{ route('get.products', '') }}/" + section_id,
-                // url: "{{ route('get.products', ':id') }}".replace(':id', section_id)
-                type: "GET",
-                dataType: "json",
-                success: function(data) {
-                    $('#product').empty();
-                    $('#product').append('<option value="">Select Product</option>');
-                    $.each(data, function(key, value) {
-                        $('#product').append('<option value="' + key + '">' + value + '</option>');
-                    });
-                },
-                error: function(xhr, status, error) {
-                    console.log("AJAX Error:", error);
-                    console.log("Response:", xhr.responseText);
-                }
-            });
-        } else {
-            $('#product').empty();
-            $('#product').append('<option value="">Select Product</option>');
-        }
-    });
-});
+      let amount_commission2 = amount_commission - discount;
+
+      if (amount_commission2 < 0) {
+          alert('Discount cannot exceed commission amount!');
+          document.getElementById("discount").value = 0;
+          return;
+      }
+
+      let value_vat = (amount_commission2 * rate_vat) / 100;
+      let total = amount_commission2 + value_vat;
+
+      document.getElementById("value_vat").value = value_vat.toFixed(2);
+      document.getElementById("total").value = total.toFixed(2);
+    }
+
+    // Attach function to inputs
+    document.getElementById("amount_commission").addEventListener("input", myFunction);
+    document.getElementById("discount").addEventListener("input", myFunction);
+    document.getElementById("rate_vat").addEventListener("input", myFunction);
+  });
 </script>
-
-<script>
-  // function myFunction() {
-  //   var amount_commission = parseFloat($('#amount_commission').val());
-  //   var discount = parseFloat($('#discount').val());
-  //   var rate_vat = parseFloat($('#rate_vat').val());
-  //   var value_vat = parseFloat($('#value_vat').val());
-
-  //   var amount_collectio2 = amount_commission - discount;
-
-  //   if (amount_commission === 'undefined' || !amount_commission) {
-  //     alert(__("trans.please_enter_the_commission_amount"));
-  //   } else {
-  //     var intResults = amount_collectio2 * rate_vat / 100;
-
-  //     var intResults2 = parseFloat(intResults + amount_collectio2);
-
-  //     sumq = parseFloat(intResults).toFixed(2);
-  //     sumt = parseFloat(intResults2).toFixed(2);
-
-  //     $('#value_vat').val(sumq);
-  //     $('#total').val(sumt);
-
-  //   }
-  // }
-  function myFunction() {
-
-var amount_commission = parseFloat(document.getElementById("amount_commission").value);
-var discount = parseFloat(document.getElementById("discount").value);
-var rate_vat = parseFloat(document.getElementById("rate_vat").value);
-var value_vat = parseFloat(document.getElementById("value_vat").value);
-
-var amount_commission2 = amount_commission - discount;
-
-
-if (typeof amount_commission === 'undefined' || !amount_commission) {
-
-    alert('يرجي ادخال مبلغ العمولة ');
-
-} else {
-    var intResults = amount_commission2 * rate_vat / 100;
-
-    var intResults2 = parseFloat(intResults + amount_commission2);
-
-    sumq = parseFloat(intResults).toFixed(2);
-
-    sumt = parseFloat(intResults2).toFixed(2);
-
-    document.getElementById("value_vat").value = sumq;
-
-    document.getElementById("total").value = sumt;
-
-}
-
-}
-</script>
-{{-- @endpush --}}
-
-@endsection
+@endpush

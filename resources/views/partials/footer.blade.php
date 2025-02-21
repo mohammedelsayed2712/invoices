@@ -9,3 +9,28 @@
     </span>
   </div>
 </footer>
+
+</div>
+@push('styles')
+
+<style>
+  .center-layout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .center-layout .container {
+    width: 100%;
+  }
+</style>
+
+@endpush
+@include('partials.scripts')
+
+
+@stack('scripts')
+
+</body>
+
+</html>
