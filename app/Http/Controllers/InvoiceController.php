@@ -14,7 +14,7 @@ class InvoiceController extends Controller
      */
     public function index()
     {
-        $invoices = Invoice::with('section', 'product')->all();
+        $invoices = Invoice::with('section', 'product')->get();
         return view('invoices.index', compact('invoices'));
     }
 
@@ -24,10 +24,9 @@ class InvoiceController extends Controller
     public function create()
     {
         $sections = Section::where('status', 'active')->get();
-        $products = Product::where('status', 'active')->get();
         $code     = 'V' . date('Ymd') . '-' . time();
 
-        return view('invoices.create', compact('sections', 'products', 'code'));
+        return view('invoices.create', compact('sections', 'code'));
     }
 
     /**
@@ -35,7 +34,6 @@ class InvoiceController extends Controller
      */
     public function store(InvoiceRequest $request)
     {
-        // dd($request->validated());
         Invoice::create($request->validated());
         Alert::toast(__("trans.data_saved_successfully"), 'success');
         return redirect()->route('invoices.index');
@@ -47,9 +45,8 @@ class InvoiceController extends Controller
     {
         $invoice  = Invoice::find($id);
         $sections = Section::get();
-        $products = Product::get();
 
-        return view('invoices.edit', compact('invoice', 'sections', 'products'));
+        return view('invoices.edit', compact('invoice', 'sections'));
     }
 
     /**
@@ -76,10 +73,7 @@ class InvoiceController extends Controller
 
     public function getProducts($section_id)
     {
-        dd('Product');
         $products = Product::where('section_id', $section_id)->pluck('name', 'id');
-        logger($products); // Check Laravel logs (storage/logs/laravel.log)
-                           // return response()->json($products);
-        return json_encode($products);
+        return response()->json($products);
     }
 }

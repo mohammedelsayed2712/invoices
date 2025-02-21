@@ -40,7 +40,7 @@
                   <td>{{ $loop->iteration }}</td>
                   <td>{{ $invoice->invoice_number }}</td>
                   <td>{{ $invoice->section->name }}</td>
-                  <td>{{ $invoice->product->name }}</td>
+                  <td>{{ $invoice->product }}</td>
                   {{-- <td>{{ __('trans.' . $invoice->status) }}</td> --}}
                   <td>
                     @if ($invoice->status == 'active')

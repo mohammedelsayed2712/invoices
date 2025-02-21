@@ -24,6 +24,9 @@ Route::group(
             Route::resource('products', App\Http\Controllers\ProductController::class)->except('show');
 
             Route::get('get-products/{section_id}', [InvoiceController::class, 'getProducts'])->name('get.products');
+
+            // Route::get('/section/{id}', [InvoiceController::class, 'getproducts']);
+            Route::get('/get-products/{section_id}', [InvoiceController::class, 'getproducts']);
         });
     }
 );

@@ -30,6 +30,21 @@
     @enderror
   </div>
 
+  {{-- Section --}}
+  {{-- <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
+    <label for="inputName" class="form-label">@lang('trans.section')</label>
+    <select name="section" class="form-control" onclick="console.log($(this).val())"
+      onchange="console.log('change is firing')">
+      <option value="" selected disabled>@lang('trans.select_section')</option>
+      @foreach ($sections as $section)
+      <option value="{{ $section->id }}"> {{ $section->name }}</option>
+      @endforeach
+    </select>
+    @error('section_id')
+    <span class="text-danger d-block mt-2">{{ $message }}</span>
+    @enderror
+  </div> --}}
+
   <!-- Section -->
   <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
     <label for="section_id" class="form-label">@lang('trans.section')</label>
@@ -49,17 +64,10 @@
 
   <!-- Product -->
   <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
-    <label for="product_id" class="form-label">@lang('trans.product')</label>
-    <select name="product_id" id="product_id" class="form-control">
-      <option value="">@lang('trans.select_product')</option>
-      @foreach($products as $product)
-      <option value="{{ $product->id }}" {{ ($invoice->product_id ?? old('product_id')) == $product->id ? 'selected' :
-        '' }}>
-        {{ $product->name }}
-      </option>
-      @endforeach
+    <label for="inputName" class="form-label">@lang('trans.product')</label>
+    <select id="product" name="product" class="form-control">
     </select>
-    @error('product_id')
+    @error('product')
     <span class="text-danger d-block mt-2">{{ $message }}</span>
     @enderror
   </div>
@@ -164,6 +172,33 @@
 </div>
 
 @push('scripts')
+<script>
+  $(document).ready(function() {
+      $('select[name="section_id"]').on('change', function() {
+          var SectionId = $(this).val();
+          if (SectionId) {
+              $.ajax({
+                  url: "{{ URL::to('get-products') }}/" + SectionId,
+                  type: "GET",
+                  dataType: "json",
+                  success: function(data) {
+                      $('select[name="product"]').empty();
+                      $.each(data, function(key, value) {
+                          $('select[name="product"]').append('<option value="' +
+                              value + '">' + value + '</option>');
+                      });
+                  },
+              });
+
+          } else {
+              console.log('AJAX load did not work');
+          }
+      });
+
+  });
+
+</script>
+
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     function myFunction() {

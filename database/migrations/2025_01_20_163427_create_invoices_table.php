@@ -18,9 +18,8 @@ return new class extends Migration
             $table->date('due_date')->nullable();
             $table->unsignedBigInteger('section_id');
             $table->foreign('section_id')->references('id')->on('sections')->onDelete('cascade');
-            $table->unsignedBigInteger('product_id');
-            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
-            $table->decimal('amount_collection', 8)->nullable();;
+            $table->string('product');
+            $table->decimal('amount_collection', 8);
             $table->decimal('amount_commission', 8);
             $table->decimal('discount', 8);
             $table->decimal('value_vat', 8);
