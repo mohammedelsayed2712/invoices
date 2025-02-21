@@ -30,21 +30,6 @@
     @enderror
   </div>
 
-  {{-- Section --}}
-  {{-- <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
-    <label for="inputName" class="form-label">@lang('trans.section')</label>
-    <select name="section" class="form-control" onclick="console.log($(this).val())"
-      onchange="console.log('change is firing')">
-      <option value="" selected disabled>@lang('trans.select_section')</option>
-      @foreach ($sections as $section)
-      <option value="{{ $section->id }}"> {{ $section->name }}</option>
-      @endforeach
-    </select>
-    @error('section_id')
-    <span class="text-danger d-block mt-2">{{ $message }}</span>
-    @enderror
-  </div> --}}
-
   <!-- Section -->
   <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
     <label for="section_id" class="form-label">@lang('trans.section')</label>
@@ -64,8 +49,12 @@
 
   <!-- Product -->
   <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
-    <label for="inputName" class="form-label">@lang('trans.product')</label>
+    <label for="product" class="form-label">@lang('trans.product')</label>
     <select id="product" name="product" class="form-control">
+      {{-- <option value="">@lang('trans.select_product')</option> --}}
+      @if(isset($invoice) && $invoice->product)
+      <option value="{{ $invoice->product }}" selected>{{ $invoice->product }}</option>
+      @endif
     </select>
     @error('product')
     <span class="text-danger d-block mt-2">{{ $message }}</span>
@@ -115,13 +104,15 @@
   <!-- Value VAT -->
   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
     <label for="value_vat" class="form-label">@lang('trans.value_vat')</label>
-    <input type="text" name="value_vat" id="value_vat" class="form-control" readonly>
+    <input type="text" name="value_vat" id="value_vat" class="form-control" readonly
+      value="{{ $invoice->value_vat ?? old('value_vat') }}">
   </div>
 
   <!-- Total -->
   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
     <label for="total" class="form-label">@lang('trans.total')</label>
-    <input type="text" name="total" id="total" class="form-control" readonly>
+    <input type="text" name="total" id="total" class="form-control" readonly
+      value="{{ $invoice->total ?? old('total') }}">
   </div>
 
 
