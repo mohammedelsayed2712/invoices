@@ -179,6 +179,7 @@ $array = [
     "Add Section"                         => "Add Section",
     "select_section"                      => "Select Section",
     "select_product"                      => "Select Product",
+    "select_user"                         => "Select User",
 
     // Invoices
     "add_item"                            => "Add Item",

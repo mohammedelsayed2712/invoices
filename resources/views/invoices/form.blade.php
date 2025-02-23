@@ -61,6 +61,47 @@
     @enderror
   </div>
 
+  <!-- User -->
+  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
+    <label for="user_id" class="form-label">@lang('trans.user')</label>
+    <select name="user_id" id="user_id" class="form-control">
+      <option value="">@lang('trans.select_user')</option>
+      @foreach($users as $user)
+      <option value="{{ $user->id }}" {{ ($invoice->user_id ?? old('user_id')) == $user->id ? 'selected' :
+        '' }}>
+        {{ $user->name }}
+      </option>
+      @endforeach
+    </select>
+    @error('user_id')
+    <span class="text-danger d-block mt-2">{{ $message }}</span>
+    @enderror
+  </div>
+
+  {{-- Payment Date --}}
+  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
+    <label for="payment_date" class="form-label">@lang('trans.payment_date')</label>
+    <input type="date" name="payment_date" id="payment_date" class="form-control"
+      value="{{ $invoice->payment_date ?? old('payment_date') }}">
+    @error('payment_date')
+    <span class="text-danger d-block mt-2">{{ $message }}</span>
+    @enderror
+  </div>
+
+  <!-- Status -->
+  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
+    <label for="status" class="form-label">@lang('trans.status')</label>
+    <select name="status" id="status" class="form-control">
+      <option value="active" {{ ($invoice->status ?? old('status')) == 'active' ? 'selected' : ''
+        }}>@lang('trans.active')</option>
+      <option value="inactive" {{ ($invoice->status ?? old('status')) == 'inactive' ? 'selected' : ''
+        }}>@lang('trans.inactive')</option>
+    </select>
+    @error('status')
+    <div class="text-danger">{{ $message }}</div>
+    @enderror
+  </div>
+
   <!-- Amount Collection -->
   <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
     <label for="amount_collection" class="form-label">@lang('trans.amount_collection')</label>
@@ -113,41 +154,6 @@
     <label for="total" class="form-label">@lang('trans.total')</label>
     <input type="text" name="total" id="total" class="form-control" readonly
       value="{{ $invoice->total ?? old('total') }}">
-  </div>
-
-
-  {{-- Payment Date --}}
-  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
-    <label for="payment_date" class="form-label">@lang('trans.payment_date')</label>
-    <input type="date" name="payment_date" id="payment_date" class="form-control"
-      value="{{ $invoice->payment_date ?? old('payment_date') }}">
-    @error('payment_date')
-    <span class="text-danger d-block mt-2">{{ $message }}</span>
-    @enderror
-  </div>
-
-  <!-- Value Status -->
-  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
-    <label for="value_status" class="form-label">@lang('trans.value_status')</label>
-    <input type="number" name="value_status" id="value_status" class="form-control"
-      value="{{ $invoice->value_status ?? old('value_status') }}">
-    @error('value_status')
-    <span class="text-danger d-block mt-2">{{ $message }}</span>
-    @enderror
-  </div>
-
-  <!-- Status -->
-  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
-    <label for="status" class="form-label">@lang('trans.status')</label>
-    <select name="status" id="status" class="form-control">
-      <option value="active" {{ ($invoice->status ?? old('status')) == 'active' ? 'selected' : ''
-        }}>@lang('trans.active')</option>
-      <option value="inactive" {{ ($invoice->status ?? old('status')) == 'inactive' ? 'selected' : ''
-        }}>@lang('trans.inactive')</option>
-    </select>
-    @error('status')
-    <div class="text-danger">{{ $message }}</div>
-    @enderror
   </div>
 
   <!-- Note -->

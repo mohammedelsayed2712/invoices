@@ -5,6 +5,7 @@ use App\Http\Requests\InvoiceRequest;
 use App\Models\Invoice;
 use App\Models\Product;
 use App\Models\Section;
+use App\Models\User;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class InvoiceController extends Controller
@@ -24,9 +25,10 @@ class InvoiceController extends Controller
     public function create()
     {
         $sections = Section::where('status', 'active')->get();
+        $users    = User::get();
         $code     = 'V' . date('Ymd') . '-' . time();
 
-        return view('invoices.create', compact('sections', 'code'));
+        return view('invoices.create', compact('sections', 'users', 'code'));
     }
 
     /**
@@ -45,8 +47,9 @@ class InvoiceController extends Controller
     {
         $invoice  = Invoice::find($id);
         $sections = Section::get();
+        $users    = User::get();
 
-        return view('invoices.edit', compact('invoice', 'sections'));
+        return view('invoices.edit', compact('invoice', 'sections', 'users'));
     }
 
     /**

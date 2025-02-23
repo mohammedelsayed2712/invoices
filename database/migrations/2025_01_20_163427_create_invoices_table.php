@@ -26,9 +26,10 @@ return new class extends Migration
             $table->string('rate_vat', 999);
             $table->decimal('total', 8);
             $table->string('status')->default('active');
-            $table->integer('value_status');
             $table->text('note')->nullable();
             $table->date('payment_date')->nullable();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();
         });

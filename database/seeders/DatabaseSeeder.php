@@ -1,5 +1,4 @@
 <?php
-
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -14,6 +13,8 @@ class DatabaseSeeder extends Seeder
     {
         $array = [
             UserSeeder::class,
+            SectionSeeder::class,
+            ProductSeeder::class,
         ];
 
         $this->call($array);

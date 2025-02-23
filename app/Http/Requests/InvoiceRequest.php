@@ -32,10 +32,10 @@ class InvoiceRequest extends FormRequest
             'amount_commission' => 'required|numeric|min:0',
             'discount'          => 'required|numeric|min:0',
             'value_vat'         => 'required|numeric|min:0',
-            'rate_vat'          => 'required|numeric|min:0|max:100',
+            'rate_vat'          => 'required|string',
             'total'             => 'required|numeric|min:0',
             'status'            => 'required|string|in:active,inactive',
-            'value_status'      => 'required|integer',
+            'user_id'           => 'required|exists:users,id',
             'note'              => 'nullable|string',
             'payment_date'      => 'nullable|date|after_or_equal:invoice_date',
         ];

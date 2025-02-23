@@ -229,6 +229,7 @@ $array = [
     "sections"                            => "الأقسام",
     "Add Section"                         => "إضافة قسم",
     "select_section"                      => "اختر القسم",
+    "select_user"                         => "اختر المستخدم",
     "select_product"                      => "اختر المنتج",
     "add_item"                            => "إضافة جديد",
     "amount_collection"                   => "المبلغ المحصل",

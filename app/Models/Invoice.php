@@ -22,7 +22,6 @@ class Invoice extends Model
         'value_vat',
         'total',
         'status',
-        'value_status',
         'note',
         'payment_date',
     ];
