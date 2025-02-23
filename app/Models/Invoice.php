@@ -23,6 +23,7 @@ class Invoice extends Model
         'total',
         'status',
         'note',
+        'user_id',
         'payment_date',
     ];
 
