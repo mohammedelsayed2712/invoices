@@ -25,6 +25,7 @@ class Invoice extends Model
         'note',
         'user_id',
         'payment_date',
+        'value_status',
     ];
 
     public function section()
@@ -35,5 +36,10 @@ class Invoice extends Model
     public function product()
     {
         return $this->belongsTo(Product::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

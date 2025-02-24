@@ -38,6 +38,7 @@ class InvoiceRequest extends FormRequest
             'user_id'           => 'required|exists:users,id',
             'note'              => 'nullable|string',
             'payment_date'      => 'nullable|date|after_or_equal:invoice_date',
+            'value_status'      => 'required|numeric',
         ];
     }
 }

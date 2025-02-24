@@ -30,6 +30,7 @@ return new class extends Migration
             $table->date('payment_date')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('value_status');
             $table->softDeletes();
             $table->timestamps();
         });

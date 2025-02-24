@@ -61,6 +61,16 @@
     @enderror
   </div>
 
+  {{-- Value Status --}}
+  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
+    <label for="value_status" class="form-label">@lang('trans.value_status')</label>
+    <input type="number" name="value_status" id="value_status" class="form-control"
+      value="{{ $invoice->value_status ?? old('value_status') }}">
+    @error('value_status')
+    <span class="text-danger d-block mt-2">{{ $message }}</span>
+    @enderror
+  </div>
+
   <!-- User -->
   <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
     <label for="user_id" class="form-label">@lang('trans.user')</label>
@@ -143,14 +153,14 @@
   </div>
 
   <!-- Value VAT -->
-  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
     <label for="value_vat" class="form-label">@lang('trans.value_vat')</label>
     <input type="text" name="value_vat" id="value_vat" class="form-control" readonly
       value="{{ $invoice->value_vat ?? old('value_vat') }}">
   </div>
 
   <!-- Total -->
-  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
     <label for="total" class="form-label">@lang('trans.total')</label>
     <input type="text" name="total" id="total" class="form-control" readonly
       value="{{ $invoice->total ?? old('total') }}">
